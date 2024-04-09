@@ -1,6 +1,5 @@
-import { useState } from 'react'
 import { useCheckList } from '../contexts/CheckListContext'
-import { useContext } from 'react'
+
 
 const someItem = [
   { id: 1, thing: "vantar" },
@@ -10,13 +9,13 @@ const someItem = [
 ]
 
 export const CheckList = () => {
-  const {addToList} = useCheckList()
+  const {addToList, clearList} = useCheckList()
 	return (
 		<>
 			<div>
 				<h2>Det här ska med idag</h2>
-				<ul></ul>
-        <button onClick={()=> addToList(someItem)}>Ta bort allt</button>
+        <input type='checkbox'></input>
+        <button onClick={(clearList)}>Ta bort allt</button>
 			</div>
 		</>
 	)

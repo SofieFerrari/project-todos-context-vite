@@ -2,15 +2,24 @@ import { createContext, useContext, useState } from "react"
 
 const CheckListContext= createContext()
 
-export const CheckListProvider = ({children}) => {
+export const CheckListProvider = ({ children }) => {
   const [bringItems, setBringItems] = useState([])
 
+  //chatgpts kod
   const addToList = (someItem) => {
-    setBringItems(...bringItems, someItem)
+  setBringItems(currentItems => [...currentItems, someItem])
+
+  // const addToList = (someItem) => {
+  //   setBringItems(...bringItems, someItem)
+
   }
 
+    const clearList = () => {
+			setBringItems([])
+		}
+
   return (
-    <CheckListContext.Provider value={addToList}>
+    <CheckListContext.Provider value={{addToList, bringItems, clearList}}>
       {children}
     </CheckListContext.Provider>
   )
