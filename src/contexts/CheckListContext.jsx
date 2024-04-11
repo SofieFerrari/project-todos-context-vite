@@ -3,11 +3,11 @@ import { createContext, useContext, useState } from "react"
 const CheckListContext= createContext()
 
 export const CheckListProvider = ({ children }) => {
-  const [bringItems, setBringItems] = useState([])
+  const [itemsData, setItemsData] = useState([])
 
-  //chatgpts kod
-  const addToList = (someItem) => {
-  setBringItems(currentItems => [...currentItems, someItem])
+  //chatgpts kod, vad ska jag ha som argument? är det text.value eller ngt sånt? ta bort someItem från array?
+  const addToList = () => {
+  setItemsData(currentItems => [...currentItems, someItem])
 
   // const addToList = (someItem) => {
   //   setBringItems(...bringItems, someItem)
@@ -15,11 +15,11 @@ export const CheckListProvider = ({ children }) => {
   }
 
     const clearList = () => {
-			setBringItems([])
+			setItemsData([])
 		}
 
   return (
-    <CheckListContext.Provider value={{addToList, bringItems, clearList}}>
+    <CheckListContext.Provider value={{addToList, itemsData, clearList}}>
       {children}
     </CheckListContext.Provider>
   )

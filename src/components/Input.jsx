@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import { useCheckList } from '../contexts/CheckListContext'
+import { useState } from "react"
+import { useCheckList } from "../contexts/CheckListContext"
+
 
 //funktionell komponent som ska få sin info via global state, men först skapar jag lokal state för att fatta.
 export const Input = () => {
-	const { bringItems, someItem, clearList } = useCheckList()
-	const [onSubmit, setOnSubmit] = useState('')
+	const { itemsData, clearList } = useCheckList()
 
 	const handleSubmit = (event) => {
 		event.preventDefault()
@@ -13,16 +13,16 @@ export const Input = () => {
 	return (
 		<>
 			<ul>
-				{bringItems.map((item) => (
+				{itemsData.map((item) => (
 					<li key={item.id}></li>
 				))}
 			</ul>
-			<form onSubmit={handleSubmit}>
+			{/* <form onSubmit={handleSubmit}>
 				<div>
 					<input type="text"></input>
-					<button onClick={(clearList) => null}>Check!</button>
+					<button onClick={() => null}>Lägg till!</button>
 				</div>
-			</form>
+			</form> */}
 		</>
 	)
 }
