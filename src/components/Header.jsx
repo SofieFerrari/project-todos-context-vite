@@ -5,7 +5,7 @@ export const Header = () => {
 	return (
 		<header>
 			<h1>Bring to and from daycare</h1>
-			<p>things: {itemsData ? itemsData.length : '0'}</p>
+			<p>You're bringing {itemsData ? itemsData.length : '0'} things today</p>
 		</header>
 	)
 }

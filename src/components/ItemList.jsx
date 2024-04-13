@@ -16,7 +16,7 @@ export const ItemList = () => {
         </div>
       ) : (
         <div className="klar">
-          <p>du har tagit med allt</p>
+          <p>You have everything!</p>
         </div>
       )}
 

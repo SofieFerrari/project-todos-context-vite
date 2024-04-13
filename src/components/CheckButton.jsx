@@ -1,28 +1,24 @@
-import { useRef } from "react"
-import { useCheckList } from "../contexts/CheckListContext"
+import { useCheckList } from '../contexts/CheckListContext'
 
 export const CheckButton = ({ item, index }) => {
-  const { itemsData, checkedItem } = useCheckList ()
-  const itemsRef = useRef()
+	const { itemsData, checkedItem } = useCheckList()
 
-  const clicked = () => {
-    itemsRef.current.classList.toggle("complete")
+	// Function to handle checkbox change
+	const handleChange = () => {
+		checkedItem(itemsData.id, index)
+		console.log('Checked item with ID:', item.id)
+	}
 
-    checkedItem(itemsData.id, index)
-    console.log("checkbutton", itemsData.id)
-  }
-
-  return (
-    <form>
-      <input 
-      className="check-button"
-      checked=""
-      type="checkbox" 
-      ref={itemsRef}
-      id={index}
-      name="item-check"
-      onChange={clicked}
-      />
-    </form>
-  )
+	return (
+		<form>
+			<input
+				className="check-button"
+				type="checkbox"
+				checked={checkedItem} // Assuming 'complete' is a boolean indicating if the item is checked
+				onChange={handleChange}
+				id={`checkbox-${index}`}
+				name="item-check"
+			/>
+		</form>
+	)
 }

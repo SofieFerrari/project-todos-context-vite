@@ -7,7 +7,7 @@ export const ChecklistInput = () => {
 
 	const [newTask, setNewTask] = useState({
 		id: Date.now(),
-		titel: '',
+		title: '',
 		complete: false,
 		date: moment().calendar(),
 	})
@@ -50,9 +50,8 @@ export const ChecklistInput = () => {
 					onChange={handleChange}
 				/>
 
-				<button onClick={(addToList)}>Add!</button>
-				{/* <input type="checkbox"></input> */}
-				{/* <button onClick={(clearList)}>Ta bort allt</button> */}
+				<button type="submit">Add!</button>
+				<button onClick={clearList}>Clear All</button>
 			</form>
 		</>
 	)
