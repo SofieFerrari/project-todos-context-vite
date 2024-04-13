@@ -26,7 +26,7 @@ export const ChecklistInput = () => {
 			addToList(newTask)
 			setNewTask({
 				id: Date.now(),
-				title: '',
+				title: "",
 				complete: false,
 				date: moment().calendar(),
 			})
@@ -43,12 +43,14 @@ export const ChecklistInput = () => {
 			<form className="input-form" onSubmit={handleSubmit}>
 				<input
 					type="text"
+					name="title"
+					id="input-form"
 					placeholder="add things here"
 					value={newTask.title}
 					onChange={handleChange}
 				/>
 
-				<button onClick={() => null}>Add!</button>
+				<button onClick={(addToList)}>Add!</button>
 				{/* <input type="checkbox"></input> */}
 				{/* <button onClick={(clearList)}>Ta bort allt</button> */}
 			</form>

@@ -2,7 +2,7 @@ import { useCheckList } from "../contexts/CheckListContext"
 import { ListRender } from "../components/ListRender"
 
 export const ItemList = () => {
-  const { itemsData, addToList, checkedItem } = useCheckList
+  const { itemsData, addToList, checkedItem } = useCheckList()
 
   const incompleted = itemsData.filter((item) => item.checked === false)
   const completed = itemsData.filter((item) => item.checked === true)
@@ -27,5 +27,6 @@ export const ItemList = () => {
           </div>
       ) : null}
     </div>
+
   )
 }
